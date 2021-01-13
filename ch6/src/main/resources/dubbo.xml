@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+    <dubbo:application name="ch6"></dubbo:application><!--
+    <dubbo:reference interface="com.cheny.service.myservice"
+                     id="service" url="dubbo://localhost:20880"
+    registry="N/A"></dubbo:reference>&lt;!&ndash;-->
+    <dubbo:registry address="zookeeper://192.168.23.128:2181"></dubbo:registry>
+    <!--<dubbo:registry address="zookeeper://localhost:2181"></dubbo:registry>-->
+    <dubbo:reference interface="com.cheny.service.myservice" id="service1" version="1.0.0" timeout="5000"></dubbo:reference>
+    <dubbo:reference interface="com.cheny.service.myservice" id="service2" version="2.0.0" timeout="5000"></dubbo:reference>
+</beans>
